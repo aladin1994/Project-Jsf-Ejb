@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Gestion des Utilisateurs</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/resources/template/template.xhtml">
+            <ui:define name="up">
+                <h1 style="text-align: center;">Gestion des Utilisateurs</h1>
+            </ui:define>
+            <ui:define name="main">
+                <hr />
+                <h:form style="width: 250px; margin: 0 auto;">
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Nom de l'Utilisateur :" />
+                        <h:inputText value="#{users.user.userName}" required="true" requiredMessage="Veuillez remplir le champ Nom de l'Utilisateur." />
+                        <h:outputLabel value="Mot de passe :" />
+                        <h:inputSecret value="#{users.user.password}" required="true" requiredMessage="Veuillez remplir le champ Mot de passe." />
+                        <h:outputLabel value="Email :" />
+                        <h:inputText value="#{users.user.email}" required="true" requiredMessage="Veuillez remplir le champ Email." />
+                    </h:panelGrid>
+                    <h:commandButton value="Ajouter un Utilisateur" action="#{users.addUser()}" />
+                </h:form>
+                <hr />
+                <h:dataTable value="#{users.userList}" var="user" border="1" style="width: 100%;">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="ID" />
+                        </f:facet>
+                        <h:outputText value="#{user.id}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nom de l'Utilisateur" />
+                        </f:facet>
+                        <h:outputText value="#{user.userName}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Mot de passe" />
+                        </f:facet>
+                        <h:outputText value="#{user.password}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Email" />
+                        </f:facet>
+                        <h:outputText value="#{user.email}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Supprimer" />
+                        </f:facet>
+                        <h:form>
+                            <h:commandButton value="Supprimer" action="#{users.deleteUser(user)}" />
+                        </h:form>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Modifier" />
+                        </f:facet>
+                        <h:form>
+                            <h:commandButton type="submit" id="update" value="Modifier" action="#{users.editUsers(user)}" />
+                        </h:form>
+                    </h:column>
+                </h:dataTable>
+                <hr />
+                <h:messages />
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

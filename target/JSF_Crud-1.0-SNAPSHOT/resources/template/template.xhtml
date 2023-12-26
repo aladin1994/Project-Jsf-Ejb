@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:head>
+        <h:outputStylesheet library="theme" name="css/style.css" />
+    </h:head>
+
+    <h:body>
+        <!-- Structure de base de la page -->
+        <div class="page">
+            
+            <!-- En-tête de la page -->
+            <div class="up">
+                <ui:insert name="up">
+                    <ui:include src="up.xhtml" />
+                </ui:insert>
+            </div>
+            
+            <!-- Contenu principal de la page -->
+            <div class="main">
+                <ui:insert name="main">
+                    <ui:include src="main.xhtml" />
+                </ui:insert>
+            </div>
+            
+            <!-- Pied de page de la page -->
+            <div class="down">
+                <ui:insert name="down">
+                    <ui:include src="down.xhtml" />
+                </ui:insert>
+            </div>
+            
+            <!-- Clearfix pour éviter les problèmes de mise en page -->
+            <div style="clear:both;"></div>
+        </div>
+    </h:body>
+</html>

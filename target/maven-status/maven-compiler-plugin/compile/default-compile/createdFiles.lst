@@ -1,0 +1,4 @@
+com\mycompany\DAO\UsersEJB.class
+com\mycompany\Controller\UsersController.class
+com\mycompany\Entity\Users_.class
+com\mycompany\Entity\Users.class
